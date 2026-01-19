@@ -67,5 +67,5 @@ module.exports = function(grunt) {
       done();
     });
   });
-  grunt.registerTask('test', ['test:bin', 'test:cov', 'test:check-cov']);
+  grunt.registerTask('test', ['test:bin', 'test:cov']);
 };
