@@ -291,4 +291,20 @@ describe('Regressions', function() {
     };
     shouldCompileToWithPartials(string, [{}, {}, partials], true, 'template  block  partial  block  template');
   });
+
+  describe('GH-1595', function() {
+    it('properties, that are required to be enumerable', function() {
+      shouldCompileTo('{{constructor}}', {}, '');
+      shouldCompileTo('{{__defineGetter__}}', {}, '');
+      shouldCompileTo('{{__defineSetter__}}', {}, '');
+      shouldCompileTo('{{__lookupGetter__}}', {}, '');
+      shouldCompileTo('{{__proto__}}', {}, '');
+
+      shouldCompileTo('{{lookup this "constructor"}}', {}, '');
+      shouldCompileTo('{{lookup this "__defineGetter__"}}', {}, '');
+      shouldCompileTo('{{lookup this "__defineSetter__"}}', {}, '');
+      shouldCompileTo('{{lookup this "__lookupGetter__"}}', {}, '');
+      shouldCompileTo('{{lookup this "__proto__"}}', {}, '');
+    });
+  });
 });
